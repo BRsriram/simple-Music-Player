@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Spotify</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;1,900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="index.css" type="text/css">
+     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+     <link rel="icon" href="icon.png">
+</head>
+<!-- <b>⏸️</b> -->
+<body>
+    
+     <div class="container container-fluid my-2">
+          <div class="sidebar">
+               <div class="playlists "></div>
+               <h3>Top 10 songs of 2023</h3>
+               <div class="songs my-5"> 
+               <div class="song1">
+               <p id="s1">once upon a time</p>
+               <b id="b1">▶️</b>     
+               </div>
+               <div class="song1">
+               <p id="s2">heeriye </p><b  id="b2">▶️️</b>     
+               </div>
+               <div class="song1">
+                    <p id="s3">apna bana le </p><b id="b3">▶️️</b> 
+               </div>
+               <div class="song1">
+                        <p id="s4">badass  </p><b id="b4">▶️️</b>
+               </div>
+               <div class="song1">
+                         <p id="s5">arbic kuthu  </p ><b id="b5">▶️️</b>   
+               </div>
+                    <div class="song1">
+                         <p id="s6">ordinary person  </p><b id="b6">▶️️</b>
+                        
+                    </div>
+                    <div class="song1">
+                         <p id="s7">tiger ka hukum  </p><b id="b7">▶️️</b>
+                        
+                    </div>
+                    <div class="song1">
+                         <p id="s8">naa ready dha  </p><b id="b8">▶️️</b>
+                        
+                    </div>
+               </div>
+               
+               
+          </div>
+     <div class="main mx-2">
+          <div class="mainimg" id="mainpic">
+
+          </div>
+          <marquee behavior="" >
+               <span id="caption" class="my-1">play a song and enjoy...</span>
+          </marquee>
+          
+          <audio src="#" controls id="a1"></audio>
+           <div class="icons my-5">
+           <img src="/songs and images/shuffleicon (1).png (1).png" alt="">
+          <img src="/songs and images/reverseicon.png" alt="">
+          <img src="/songs and images/pauseicon (2).png" alt="" id="pause">
+          <img src="/songs and images/forwardicon.png" alt="">
+          <img src="/songs and images/playicon.png" alt="" id="play">
+           </div>
+          
+          </div>
+     </div>
+    <script>
+     var isplaying =false;
+     var audiosong='';
+     let pause = document.getElementById("pause");
+     pause.addEventListener('click',()=>{
+     playpause()
+     })
+     function playpause(){
+          if(isplaying){
+               audiosong.pause();
+               let img=  document.getElementById("pause");
+               img.src="/songs and images/pauseicon (2).png"
+
+          }
+          else{
+               audiosong.play();
+               let img=  document.getElementById("pause");
+               img.src="/songs and images/playicon.png"
+          }
+     }
+     function iconchange(id,songname){
+      let btn = document.getElementById(id);
+      function songchange(songname){
+      audiosong= document.getElementById("a1");
+         audiosong.src=`${songname}.mpeg`;
+     }
+      isplaying=!isplaying;
+      if(isplaying){
+          btn.innerHTML="⏸️";
+          songchange(songname);
+          audiosong.play()
+          audiosong.controls;
+          audiosong.style.visibility="visible";
+         
+      }
+      else{
+          btn.innerHTML="▶️";
+          songchange(songname);
+          audiosong.pause()
+          audiosong.controls;
+          audiosong.style.visibility="hidden"
+      }
+     }
+     function mainicon(){
+          if(isplaying){
+             let img=  document.getElementById("pause");
+             img.src="/songs and images/playicon.png"
+          }
+          else{
+               let img=  document.getElementById("pause");
+             img.src="/songs and images/pauseicon (2).png" 
+          }
+     }
+     
+     document.getElementById("s1").addEventListener('click',()=>{
+     var songname="vikram";
+     let profile =document.getElementById("mainpic");
+     profile.style.backgroundImage="url('songs and images/vikram.jpeg')";
+     let cap = document.getElementById("caption");
+     cap.textContent="once upon a time"
+      var id ="b1"
+     iconchange(id,songname);
+     mainicon();
+
+
+     })
+     document.getElementById("s2").addEventListener('click',()=>{
+     var songname="heeriye";
+     let cap = document.getElementById("caption");
+     cap.textContent="heeriye heeriye "
+     let profile =document.getElementById("mainpic");
+     profile.style.backgroundImage="url('songs and images/heeriye.jpeg')";
+     var id ="b2"
+     iconchange(id,songname);
+     mainicon();
+   
+     })  
+     document.getElementById("s3").addEventListener('click',()=>{
+     var songname="apna";
+     let cap = document.getElementById("caption");
+     cap.textContent="apna bana le "
+     let profile =document.getElementById("mainpic");
+     profile.style.backgroundImage="url('songs and images/apna.jpeg')";
+     var id ="b3"
+     iconchange(id,songname);
+     mainicon()
+     }) 
+     document.getElementById("s4").addEventListener('click',()=>{
+     var songname="badass";
+     let cap = document.getElementById("caption");
+     cap.textContent="badass ma leo das "
+     let profile =document.getElementById("mainpic");
+     profile.style.backgroundImage="url('songs and images/badass.jpeg')";
+     var id ="b4"
+     iconchange(id,songname);
+     mainicon()
+     }) 
+     document.getElementById("s5").addEventListener('click',()=>{
+     var songname="arabic";
+     let cap = document.getElementById("caption");
+     cap.textContent="halamiti habibo"
+     let profile =document.getElementById("mainpic");
+     profile.style.backgroundImage="url('songs and images/arabic.jpeg')";
+     var id ="b5"
+     iconchange(id,songname);
+     mainicon()
+     }) 
+     document.getElementById("s6").addEventListener('click',()=>{
+     var songname="original person";
+     let cap = document.getElementById("caption");
+     cap.textContent="my life is in this town"
+     let profile =document.getElementById("mainpic");
+     profile.style.backgroundImage="url('songs and images/oridianry.jpeg')";
+     var id ="b6"
+     iconchange(id,songname);
+     mainicon()
+     }) 
+     document.getElementById("s7").addEventListener('click',()=>{
+     var songname="hukum";
+     let cap = document.getElementById("caption");
+     cap.textContent="tiger a hukum"
+     let profile =document.getElementById("mainpic");
+     profile.style.backgroundImage="url('songs and images/hukum.jpeg')";
+     var id ="b7"
+     iconchange(id,songname);
+     mainicon()
+     }) 
+     document.getElementById("s8").addEventListener('click',()=>{
+     var songname="naa ready";
+     let cap = document.getElementById("caption");
+     cap.textContent="naa ready ya varava"
+     let profile =document.getElementById("mainpic");
+     profile.style.backgroundImage="url('songs and images/naaready.jpeg')";
+     var id ="b8"
+     iconchange(id,songname);
+     mainicon()
+     }) 
+    </script>
+</body>
+</html>
